@@ -35,4 +35,4 @@ jobs:
 
         git add user-agents.json
         git commit -m "Update Useragents"
-        git push https://$GH_TOKEN@github.com/CallocGD/user-agent-list.git
+        git push https://$GH_TOKEN@github.com/CallocGD/user-agents-list.git
