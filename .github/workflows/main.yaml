@@ -33,6 +33,6 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Actions"
 
-        git add user-agents.json
+        git add user-agents
         git commit -m "Update Useragents"
         git push https://$GH_TOKEN@github.com/CallocGD/user-agents-list.git
