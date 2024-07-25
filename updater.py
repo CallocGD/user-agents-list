@@ -66,7 +66,7 @@ def scrape_user_agents(proxy:Optional[str] = None):
     return parse_agents(request_user_agents(proxy))
 
 def write_json(data:dict[str, UserAgents]):
-    with open("user-agents.json", "wb") as j: 
+    with open("user-agents/user-agents.json", "wb") as j: 
         j.write(orjson.dumps(data))
 
 
