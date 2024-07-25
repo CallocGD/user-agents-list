@@ -9,7 +9,11 @@ except (ModuleNotFoundError, ImportError):
 
 import random
 from typing import NamedTuple, Optional
+import os 
 
+if not os.path.exists("user-agents"):
+    os.mkdir("user-agents")
+    
 
 default_frauds =  [
     "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.3",
