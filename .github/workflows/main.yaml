@@ -1,0 +1,38 @@
+name: User-Agent List
+
+on:
+  schedule:
+    # Update Weekly...
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Python3
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install selectolax curl_cffi orjson
+
+    - name: Run the updater
+      run: |
+        python updater.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Actions"
+
+        git add user-agents.json
+        git commit -m "Update Useragents"
+        git push https://$GH_TOKEN@github.com/CallocGD/user-agent-list.git
