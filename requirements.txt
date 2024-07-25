@@ -1,0 +1,4 @@
+# List is rather lackluster but all of these are useful I assure you...
+orjson
+curl_cffi
+selectolax
